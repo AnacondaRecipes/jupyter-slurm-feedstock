@@ -1,0 +1,13 @@
+
+aggregate_check: false
+
+upload_without_merge: true
+
+upload_channels:
+  - services
+
+channels:
+  - services
+  - conda-forge  # needed for building
+
+content_signing: {'win-64': False}
