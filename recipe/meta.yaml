@@ -1,7 +1,7 @@
 {% set name = "jupyterlab-slurm" %}
 
 # Made up version name for fork
-{% set version = "3.2.0a" %}
+{% set version = "3.0.3a" %}
 
 package:
   name: {{ name }}
@@ -13,23 +13,31 @@ source:
 build:
   # only build on linux64 b/c of noarch
   skip: true # [not linux64]
-
   noarch: python
   number: 0
   script: python -m pip install --no-deps --no-build-isolation -vv .
 
 requirements:
+
+# todo: I had a lot of problems with things in the build section so i put
+# everything under host.  
+
+
+#  build:
   host:
-    - pip
+    - git
+    - hatchling
     - nodejs >=14.0
+    - hatch-nodejs-version >=0.3.2
+    - hatch-jupyter-builder >=0.5
+    - python
+    - pip
     - setuptools >=40.8.0
     - jupyter_packaging >=0.7.9
     - jupyter_server >=2.0.1,<3
-    - hatchling
     - jupyterlab >=4.0.0,<5
-    - hatch-nodejs-version >=0.3.2
-    - hatch-jupyter-builder >=0.5
   run:
+    - python
     - jupyterlab 4.*
 
   run_constrained:
