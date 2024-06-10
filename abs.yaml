@@ -8,6 +8,6 @@ upload_channels:
 
 channels:
   - services
-  - conda-forge  # needed for building
+  - services-build-deps
 
 content_signing: {'win-64': False}
